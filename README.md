@@ -3,13 +3,10 @@
 This pipeline is designed to streamline the integration of new patient data into the Brain Imaging Data Structure (BIDS) format. It not only converts DICOM files to NIfTI for BIDS compliance but also anonymizes the DICOM files and organizes them in the `sourcedata` folder. A key feature of this toolkit is its capability to save both the BIDS-compatible files and the anonymized DICOM files, addressing the frequent need for access to the original DICOM data in research settings.
 
 This tool merely streamlines the use of:
-- pydicom for dicom anonymization
-- simple-dicom-sort for sorting the dicoms
-- dcm2niix/dcm2bids for nifti conversion and BIDS sorting.
+- [pydicom](https://pydicom.github.io/) for dicom anonymization
+- [simple-dicom-sort](https://pypi.org/project/simple-dicom-sort/) for sorting the dicoms
+- [dcm2niix](https://github.com/rordenlab/dcm2niix) and [dcm2bids](https://unfmontreal.github.io/Dcm2Bids/3.1.1/) for nifti conversion and BIDS sorting.
  		
-
-## Important Note
-The anonymization process may occasionally alter critical DICOM tags due to the complex and sensitive nature of the DICOM format. It is strongly recommended that users maintain a legally accessible, original version of the DICOM files without anonymization, as a precaution and for future reference.
 
 ## Installation
 
@@ -51,4 +48,7 @@ python AddStudy.py
 
 ### WARNING!
 While NIFTI files are simpler to anonymize. DICOM headers are very heterogeneous among vendors. We have designed the anonymization method to comply with anonymization for our sample and vendor. However, we cannot guarantee that private tags in other dicom studies, especially from other vendors will be completely anonymized. We therefore urge the users to thoroughly review the resulting dicom headers prior to data sharing. 
+
+Furthermore, the anonymization process may sometimes undesiredly alter crucial dicom tags, especially in multi-volume files such as DTI, BOLD, or perfusion. We highly recommend veryfing the validity of the resulting files and preservation of the original dicom files. 
+
 
