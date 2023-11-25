@@ -37,7 +37,7 @@ conda activate bellvitge_bids
 1. **Prepare Your DICOM Files**: Place your unsorted DICOM files in the `inbox` folder with any folder and naming structure.
 
 2. Configuration: A project-specific the `BIDSDIR/code/dcm2bids_config.json` file must  be defined only once per project. An example config file is provided, but it must be tailored to your project, modify as needed. Refer to the following resources: 
-- [`How to create a config file` in the dcm2bids documentation](https://unfmontreal.github.io/Dcm2Bids/3.1.1/how-to/create-config-file/) 
+- [How to create a config file in the dcm2bids documentation](https://unfmontreal.github.io/Dcm2Bids/3.1.1/how-to/create-config-file/) 
 - [BIDS "get started" website](https://bids.neuroimaging.io/get_started.html)
 
 3. **Run the Processing Script**
@@ -47,3 +47,8 @@ python AddStudy.py
    - Follow the prompts to enter the subject ID (e.g., `sub-001`) and session ID (e.g., `ses-01`) and the script will anonymize and sort dicoms, then convert to .nii.gz and organize in a bids system .
 
 4. **Manual Cleanup**: Remember to manually delete the files in the inbox folder after processing is complete.
+
+
+### WARNING!
+While NIFTI files are simpler to anonymize. DICOM headers are very heterogeneous among vendors. We have designed the anonymization method to comply with anonymization for our sample and vendor. However, we cannot guarantee that private tags in other dicom studies, especially from other vendors will be completely anonymized. We therefore urge the users to thoroughly review the resulting dicom headers prior to data sharing. 
+
