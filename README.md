@@ -14,10 +14,11 @@ This tool merely streamlines the use of:
 
 1. **Clone the Repository**:
 ```bash
-git clone [repository URL]
+git clone https://github.com/navalpablo/BV-BIDS-Create
 ```
 
-2. **Install Conda**: Download and install [Anaconda](https://www.anaconda.com/products/distribution) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
+2. **Install Conda**: 
+Download and install [Anaconda](https://www.anaconda.com/products/distribution) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 
 3. **Create Conda Environment**:
 ```bash
