@@ -27,7 +27,7 @@ conda env create -f environment.yml
 
 4. **Activate the Environment**:
 ```bash
-conda activate bellvitge_bids
+conda activate BV-RADS
 ```
 
 ### Usage
