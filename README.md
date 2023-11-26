@@ -1,4 +1,4 @@
-# Bellvitge Radiomics dicom/nifti BIDS sorting tool
+# BV-RADS dicom/nifti BIDS sorting tool
 
 This pipeline is designed to streamline the integration of new patient data into the Brain Imaging Data Structure (BIDS) format. It not only converts DICOM files to NIfTI for BIDS compliance but also anonymizes the DICOM files and organizes them in the `sourcedata` folder. A key feature of this toolkit is its capability to save both the BIDS-compatible files and the anonymized DICOM files, addressing the frequent need for access to the original DICOM data in research settings.
 
