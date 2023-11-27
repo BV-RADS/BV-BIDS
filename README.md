@@ -34,15 +34,35 @@ conda activate BV-RADS
 
 1. **Prepare Your DICOM Files**: Place your unsorted DICOM files in the `inbox` folder with any folder and naming structure.
 
-2. Configuration: A project-specific the `BIDSDIR/code/dcm2bids_config.json` file must  be defined only once per project. An example config file is provided, but it must be tailored to your project, modify as needed. Refer to the following resources: 
+2. Configuration: A project-specific the `dcm2bids_config.json` file must  be defined only once per project. An example config file is provided, but it must be tailored to your project, modify as needed. Refer to the following resources: 
 - [How to create a config file in the dcm2bids documentation](https://unfmontreal.github.io/Dcm2Bids/3.1.1/how-to/create-config-file/) 
 - [BIDS "get started" website](https://bids.neuroimaging.io/get_started.html)
 
 3. **Run the Processing Script**
+- **Option 1: Single subject processing**: For single subject script it is not necessary to fill in the `ID_correspondence.tsv`. Instead, just run: 
 ```bash
 python AddStudy.py
 ```
    - Follow the prompts to enter the subject ID (e.g., `sub-001`) and session ID (e.g., `ses-01`) and the script will anonymize and sort dicoms, then convert to .nii.gz and organize in a bids system .
+
+- **Option 2: Multiple subjects batch processing**: 
+
+To process multiple subjects, use the  `Batch_AddStudy.py` script. Before running, fill in the `ID_correspondence.tsv` file with the two columns
+
+- First column: First column: New PatientID (e.g., 'sub-001')
+Second column: Old PatientID corresponding to the Dicom tag to be anonymized
+
+Run the script:
+
+```bash
+python Batch_AddStudy.py
+```
+
+The script processes subjects based on `ID_correspondence.tsv`, automatically assigning new session numbers. Ensure to process sessions consecutively.
+
+First column: New PatientID (e.g., 'sub-001')
+Second column: Old PatientID to be anonymized
+Run the script:
 
 4. **Manual Cleanup**: Remember to manually delete the files in the inbox folder after processing is complete.
 
