@@ -40,18 +40,18 @@ conda activate BV-RADS
 - [BIDS "get started" website](https://bids.neuroimaging.io/get_started.html)
 
 ## Processing
-### **Option 1: Single subject processing**: For single subject script it is not necessary to fill in the `ID_correspondence.tsv`. Instead, just run: 
+### **Option 1. Single subject processing**: 
+For single subject script it is not necessary to fill in the `ID_correspondence.tsv`. Instead, just run: 
 ```bash
 python AddStudy.py
 ```
    - Follow the prompts to enter the subject ID (e.g., `sub-001`) and session ID (e.g., `ses-01`) and the script will anonymize and sort dicoms, then convert to .nii.gz and organize in a bids system .
 
 ### **Option 2: Multiple subjects batch processing**: 
-
 To process multiple subjects, use the  `Batch_AddStudy.py` script. Before running, fill in the `ID_correspondence.tsv` file with the two columns
 
 - First column: First column: New PatientID (e.g., 'sub-001')
-Second column: Old PatientID corresponding to the Dicom tag to be anonymized
+- Second column: Old PatientID corresponding to the Dicom tag to be anonymized
 
 Run the script:
 
