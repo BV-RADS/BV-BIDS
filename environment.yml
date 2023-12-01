@@ -7,7 +7,4 @@ dependencies:
   - dcm2bids
   - pydicom
   - numpy
-  - pip
-  - pip:
-      - dcmtk  
-
+  - pandas
