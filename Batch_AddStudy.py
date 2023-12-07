@@ -64,31 +64,6 @@ def process_directory(input_dir, output_dir, patient_id_map):
         tasks = []
         for root, dirs, files in os.walk(input_dir):
             for file in files:
-                if is_dicom_file(file):  # Process only if it's a DICOM file
-                    src_file = os.path.join(root, file)
-                    rel_path = os.path.relpath(src_file, input_dir)
-                    dest_file = os.path.join(output_dir, rel_path)
-                    os.makedirs(os.path.dirname(dest_file), exist_ok=True)
-                    args = (src_file, dest_file, patient_id_map)
-                    tasks.append(executor.submit(anonymize_wrapper, args))
-                else:
-                    print(f"Skipping non-DICOM file: {file}")
-
-        for future in tasks:
-            future.result()
-
-
-def process_directory(input_dir, output_dir, patient_id_map):
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
-
-    num_cores = multiprocessing.cpu_count()
-    max_threads = max(1, num_cores - 2)
-
-    with ThreadPoolExecutor(max_workers=max_threads) as executor:
-        tasks = []
-        for root, dirs, files in os.walk(input_dir):
-            for file in files:
                 src_file = os.path.join(root, file)
                 rel_path = os.path.relpath(src_file, input_dir)
                 dest_file = os.path.join(output_dir, rel_path)
@@ -107,31 +82,6 @@ def get_new_session_number(subject_dir):
         return f'ses-{str(last_session_num + 1).zfill(2)}'
     else:
         return 'ses-01'
-
-def process_new_sessions(sourcedata_dir, bidsdir_folder, dcm2bids_config):
-    now = datetime.now()
-    one_hour_ago = now - timedelta(hours=1)
-
-    for subject in os.listdir(sourcedata_dir):
-        subject_dir = os.path.join(sourcedata_dir, subject)
-        if os.path.isdir(subject_dir):
-            for studydate in os.listdir(subject_dir):
-                studydate_path = os.path.join(subject_dir, studydate)
-                
-                # Get the modification time of the folder
-                folder_mod_time = datetime.fromtimestamp(os.path.getmtime(studydate_path))
-
-                if folder_mod_time > one_hour_ago:
-                    session = get_new_session_number(os.path.join(bidsdir_folder, subject))
-                    dcm2bids_cmd = [
-                        "dcm2bids", "-d", studydate_path, "-p", subject, 
-                        "-s", session, "-c", dcm2bids_config, "-o", bidsdir_folder
-                    ]
-                    print("Executing:", ' '.join(dcm2bids_cmd))  # Print the command for verification
-                    result = subprocess.run(dcm2bids_cmd, capture_output=True, text=True)
-                    print(result.stdout)  # Print standard output
-                    print(result.stderr, file=sys.stderr)  # Print standard error to stderr
-
 
 def process_new_sessions(sourcedata_dir, bidsdir_folder, dcm2bids_config):
     now = datetime.now()

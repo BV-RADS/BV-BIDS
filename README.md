@@ -14,7 +14,7 @@ This tool merely streamlines the use of:
 
 1. **Clone the Repository**:
 ```bash
-git clone https://github.com/navalpablo/BV-BIDS-Create
+git clone https://github.com/BV-RADS/BV-BIDS
 ```
 
 2. **Install Conda**: 
