@@ -2,9 +2,11 @@ name: BV-RADS
 channels:
   - conda-forge
 dependencies:
-  - python=3.7
+  - python>=3.7
   - dcm2niix
   - dcm2bids
   - pydicom
   - numpy
   - pandas
+  - nibabel
+  - matplotlib
