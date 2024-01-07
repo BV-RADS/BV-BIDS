@@ -75,3 +75,24 @@ While NIFTI files are simpler to anonymize. DICOM headers are very heterogeneous
 Furthermore, the anonymization process may sometimes undesiredly alter crucial dicom tags, especially in multi-volume files such as DTI, BOLD, or perfusion. We highly recommend veryfing the validity of the resulting files and preservation of the original dicom files. 
 
 
+
+## BIDS Viewer Script
+### Overview
+The `bids_viewer.py` script is a valuable addition to the BV-RADS toolkit, designed to enhance the visualization of MRI sequences in BIDS-formatted datasets. It simplifies the process of quickly inspecting specific MRI sequences across different subjects.
+
+###Functionality
+- The script processes NIfTI files (.nii or .nii.gz) located in the BIDS-formatted dataset.
+- Users can specify one or more MRI sequences (e.g., T1-weighted, T2-weighted, FLAIR) to be visualized.
+- For each specified sequence, the script extracts the middle axial slice from each subject's data and displays it in an HTML file.
+- The resulting HTML file contains a table where each row represents a different subject and each column corresponds to one of the entered sequences.
+- If multiple files match a sequence for a subject, the script marks this as "MULTI" in the table. If no matching files are found for a sequence in a subject's directory, it shows "NONE."
+
+###Usage
+1. Run the Script: Execute the script with the path to the BIDS directory. Optionally, you can also provide the sequence names directly as arguments. For example:
+```python
+python bids_viewer.py /path/to/BIDSDIR t1w t2w flair t1c
+```
+
+2. If the sequence names are not provided as arguments, the script will prompt you to enter them.
+
+3. View the Output: After the script completes, it generates an output.html file in the same directory. Open this file in a web browser to view the table of MRI slices.
