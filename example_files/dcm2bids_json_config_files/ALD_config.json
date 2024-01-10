@@ -1,0 +1,313 @@
+{
+  "descriptions": [
+    {
+      "datatype": "anat",
+      "suffix": "T1w",
+      "criteria": {
+      
+        "SeriesDescription": "*3D T1*"
+      }
+    },
+    {
+      "datatype": "anat",
+      "suffix": "T1w",
+      "custom_entities": "ce-GD",
+      "criteria": {
+        "SeriesDescription": "*3D T1GD*"
+      }
+    },
+    {
+      "datatype": "anat",
+      "suffix": "FLAIR",
+      "criteria": {
+        "SeriesDescription": "*3D_FLAIR*"
+      }
+    },
+    {
+      "datatype": "anat",
+      "suffix": "T2w",
+      "criteria": {
+        "SeriesDescription": "*3D_T2*"
+      }
+    },
+    {
+      "id": "DTINODDI",
+      "datatype": "dwi",
+      "suffix": "dwi",
+      "criteria": {
+        "SeriesDescription": "*NODDI*"
+      },
+      "sidecar_changes": {
+        "TotalReadoutTime": 0.03167,
+        "PhaseEncodingDirection": "j"
+      }
+    },
+    {
+      "datatype": "fmap",
+      "suffix": "epi",
+      "custom_entities": "dir-PA",
+      "criteria": {
+        "SeriesDescription": "*AP-A*"
+      },
+      "sidecar_changes": {
+        "TotalReadoutTime": 0.03167,
+        "PhaseEncodingDirection": "j-",
+        "IntendedFor": "DTINODDI"
+      }
+    },
+    {
+      "datatype": "anat",
+      "suffix": "t2starw",
+      "custom_entities": "acq-SWI_part-phase",
+      "criteria": {
+        "SeriesDescription": "*SWI*",
+    "ImageType": [
+        "ORIGINAL",
+        "PRIMARY",
+        "SW",
+        "P",
+        "SW",
+        "P",
+        "FFE",
+        "PHASE"]
+      }
+    },
+    {
+      "datatype": "anat",
+      "suffix": "t2starw",
+      "custom_entities": "acq-SWI_part-mag",
+      "criteria": {
+        "SeriesDescription": "*SWI*",
+            "ImageType": [
+        "ORIGINAL",
+        "PRIMARY",
+        "SW",
+        "M",
+        "SW",
+        "M",
+        "FFE"
+    ]
+      }
+    },
+
+    {
+      "datatype": "anat",	
+      "suffix": "t2starw",
+      "custom_entities": "acq-QSM_part-phase1",
+      "criteria": {
+        "SeriesDescription": "*QSM*",
+    "ImageType": [
+        "ORIGINAL",
+        "PRIMARY",
+        "PHASE MAP",
+        "P",
+        "FFE",
+        "PHASE"],
+	"EchoNumber": 1
+      }
+    },
+
+    {
+      "datatype": "anat",	
+      "suffix": "t2starw",
+      "custom_entities": "acq-QSM_part-magnitude1",
+      "criteria": {
+        "SeriesDescription": "*QSM*",
+        "ImageType": [
+        "ORIGINAL",
+        "PRIMARY",
+        "M",
+        "FFE",
+        "M",
+        "FFE"
+    ],
+	"EchoNumber": 1
+      }
+    },
+
+    {
+      "datatype": "anat",	
+      "suffix": "t2starw",
+      "custom_entities": "acq-QSM_part-phase2",
+      "criteria": {
+        "SeriesDescription": "*QSM*",
+    "ImageType": [
+        "ORIGINAL",
+        "PRIMARY",
+        "PHASE MAP",
+        "P",
+        "FFE",
+        "PHASE"],
+	"EchoNumber": 2
+	      }
+    },
+
+    {
+      "datatype": "anat",	
+      "suffix": "t2starw",
+      "custom_entities": "acq-QSM_part-magnitude2",
+      "criteria": {
+        "SeriesDescription": "*QSM*",
+        "ImageType": [
+        "ORIGINAL",
+        "PRIMARY",
+        "M",
+        "FFE",
+        "M",
+        "FFE"
+    ],
+	"EchoNumber": 2      }
+    },
+
+    {
+      "datatype": "anat",	
+      "suffix": "t2starw",
+      "custom_entities": "acq-QSM_part-phase3",
+      "criteria": {
+        "SeriesDescription": "*QSM*",
+    "ImageType": [
+        "ORIGINAL",
+        "PRIMARY",
+        "PHASE MAP",
+        "P",
+        "FFE",
+        "PHASE"],
+	"EchoNumber": 3
+	      }
+    },
+
+    {
+      "datatype": "anat",	
+      "suffix": "t2starw",
+      "custom_entities": "acq-QSM_part-magnitude3",
+      "criteria": {
+        "SeriesDescription": "*QSM*",
+        "ImageType": [
+        "ORIGINAL",
+        "PRIMARY",
+        "M",
+        "FFE",
+        "M",
+        "FFE"
+    ],
+	"EchoNumber": 3
+	      }
+    },
+
+    {
+      "datatype": "anat",	
+      "suffix": "t2starw",
+      "custom_entities": "acq-QSM_part-phase4",
+      "criteria": {
+        "SeriesDescription": "*QSM*",
+    "ImageType": [
+        "ORIGINAL",
+        "PRIMARY",
+        "PHASE MAP",
+        "P",
+        "FFE",
+        "PHASE"],
+	"EchoNumber": 4
+	      }
+    },
+
+    {
+      "datatype": "anat",	
+      "suffix": "t2starw",
+      "custom_entities": "acq-QSM_part-magnitude4",
+      "criteria": {
+        "SeriesDescription": "*QSM*",
+        "ImageType": [
+        "ORIGINAL",
+        "PRIMARY",
+        "M",
+        "FFE",
+        "M",
+        "FFE"
+    ],
+	"EchoNumber": 4
+      }
+    },
+
+    {
+      "datatype": "anat",	
+      "suffix": "t2starw",
+      "custom_entities": "acq-QSM_part-phase5",
+      "criteria": {
+        "SeriesDescription": "*QSM*",
+    "ImageType": [
+        "ORIGINAL",
+        "PRIMARY",
+        "PHASE MAP",
+        "P",
+        "FFE",
+        "PHASE"],
+	"EchoNumber": 5
+      }
+    },
+
+    {
+      "datatype": "anat",	
+      "suffix": "t2starw",
+      "custom_entities": "acq-QSM_part-magnitude5",
+      "criteria": {
+        "SeriesDescription": "*QSM*",
+        "ImageType": [
+        "ORIGINAL",
+        "PRIMARY",
+        "M",
+        "FFE",
+        "M",
+        "FFE"
+    ],
+	"EchoNumber": 5
+	      }
+    },
+
+    {
+      "datatype": "anat",	
+      "suffix": "t2starw",
+      "custom_entities": "acq-QSM_part-phase6",
+      "criteria": {
+        "SeriesDescription": "*QSM*",
+        "ImageType": [
+        "ORIGINAL",
+        "PRIMARY",
+        "PHASE MAP",
+        "P",
+        "FFE",
+        "PHASE"],
+	"EchoNumber": 6
+	      }
+    },
+
+    {
+      "datatype": "anat",	
+      "suffix": "t2starw",
+      "custom_entities": "acq-QSM_part-magnitude6",
+      "criteria": {
+        "SeriesDescription": "*QSM*",
+        "ImageType": [
+        "ORIGINAL",
+        "PRIMARY",
+        "M",
+        "FFE",
+        "M",
+        "FFE"
+    ],
+	"EchoNumber": 6
+      }
+    },
+
+    {
+      "datatype": "anat",	
+      "suffix": "MTS",
+      "criteria": {
+        "SeriesDescription": "*MTR*"
+      }
+    }
+
+  ]
+}
+
+
