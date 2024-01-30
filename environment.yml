@@ -10,8 +10,7 @@ dependencies:
   - pandas=2.1
   - nibabel=5.2
   - matplotlib=3.8
-  - pip=23.3
   - scipy=1.11
-  - pip:
-     - simple-dicom-sort==0.0.3
+  - tqdm=4.66
+  - pathvalidate=3.2
 
