@@ -251,11 +251,11 @@ def main():
     if not args.noanon:
         process_directory(raw_dicom_folder, anon_dicom_folder, patient_id_map)
     
-    # Sorting step
     if not args.nosort:
         print("Sorting DICOM files.")
-        dicom_sort_cmd = ["dicom_sort", "--copy", anon_dicom_folder, sourcedata_dir, "%PatientID%/%StudyDate%/%SeriesDescription%"]
-        subprocess.run(dicom_sort_cmd)
+        from dicom_sorting_tool import sort_dicom
+        sort_dicom(anon_dicom_folder, sourcedata_dir)
+
 
     # dcm2bids step
     if not args.nobids:
