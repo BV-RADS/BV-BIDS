@@ -8,6 +8,8 @@ from concurrent.futures import ThreadPoolExecutor
 import multiprocessing
 import argparse
 import pandas as pd
+from dicom_sorting_tool import sort_dicom
+
 
 """
 DICOM Processing Script
@@ -149,10 +151,11 @@ def main():
         print("Processing directories for anonymization.")
         process_directory(raw_dicom_folder, anon_dicom_folder, subject)
 
+
     if not args.nosort:
         print("Sorting DICOM files.")
-        dicom_sort_cmd = ["dicom_sort", "--copy", anon_dicom_folder, sourcedata_dir, "%PatientID%/%StudyDate%/%SeriesDescription%"]
-        subprocess.run(dicom_sort_cmd)
+        sort_dicom(anon_dicom_folder, sourcedata_dir)
+
 
     if not args.nobids:
         print("Running dcm2bids for NIfTI conversion.")
@@ -172,12 +175,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
 
