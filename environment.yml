@@ -16,5 +16,7 @@ dependencies:
   - pyyaml=6.0.2
   - pynetdicom=2.1
   - pip
-    - pyqt6=6.7
+  - pip:
+    - PyQt6==6.7
+
 
